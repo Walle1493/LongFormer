@@ -1,0 +1,23 @@
+CUDA_VISIBLE_DEVICES=2,4  python3 run_quac.py \
+  --bert_model longformer-base-4096 \
+  --do_train \
+  --train_file QuAC_data/train.json \
+  --predict_file QuAC_data/dev.json \
+  --data_dir QuAC_data \
+  --cache_dir cache-old/  \
+  --checkpoints_dir checkpoint/quac-512-128-old  \
+  --train_batch_size 12 \
+  --learning_rate 3e-5 \
+  --gradient_accumulation_steps 1 \
+  --num_train_epochs 5 \
+  --max_seq_length 4096 \
+  --max_query_length 64 \
+  --max_answer_length 30 \
+  --doc_stride 128 \
+  --output_dir longformer_fix \
+  --do_lower_case \
+  --warmup_proportion 0.1 \
+  --no_flow \
+  --do_preprocess \
+  --vocab_file longformer-base-4096/vocab.json \
+  --merges_file longformer-base-4096/merges.txt
